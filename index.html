@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:300,400,500,600,700&family=Inter:300,400,500,600,700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Horizon Realty — Find Your Next Home</title>
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Merriweather', 'serif'],
+            body: ['Inter', 'system-ui', 'sans-serif']
+          },
+          keyframes: {
+            floatUp: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            }
+          },
+          animation: {
+            floatUp: 'floatUp 600ms ease-out both'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body style="font-family: 'Merriweather', sans-serif;" class="w-full max-w-none bg-gray-50 text-gray-800 overflow-x-hidden">
+  
+  <header class="w-full bg-white shadow sticky top-0 z-50">
+    <div class="w-full max-w-none px-6 md:px-12 py-4 flex items-center justify-between">
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center text-white font-semibold">HR</div>
+        <div class="leading-tight">
+          <div class="text-lg font-semibold text-amber-700">Horizon Realty</div>
+          <div class="text-xs text-gray-500 -mt-1">Homes • Investments • Commercial</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex gap-6 items-center font-medium">
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="text-gray-700 hover:text-amber-700 transition">Home</a>
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;" class="text-gray-700 hover:text-amber-700 transition">About</a>
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="text-gray-700 hover:text-amber-700 transition">Contact</a>
+        <a href="#listings" class="px-4 py-2 bg-amber-700 text-white rounded-lg shadow hover:scale-105 transition">Listings</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button id="nav-toggle" class="p-2 rounded-md bg-amber-50 text-amber-700 hover:bg-amber-100 transition">
+          <svg id="nav-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="nav-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-nav" class="hidden md:hidden px-6 pb-6 bg-white">
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="block py-2 text-gray-700">Home</a>
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;" class="block py-2 text-gray-700">About</a>
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="block py-2 text-gray-700">Contact</a>
+    </div>
+  </header>
+
+  
+  <main class="w-full max-w-none">
+    <section class="relative w-full">
+      <img src="https://pixabay.com/get/gad54158c1a53d23d1f86275629d7ef019fb5a3c8bcfba5d96e68f8e111ec26cb4b4d2b2cad76df73d662244759b8a2534d3a0110d4ffaa6551ba0f38cae549a2_640.jpg" alt="hero" class="w-full h-[62vh] object-cover brightness-90" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
+      <div class="absolute inset-0 flex items-center justify-start px-6 md:px-20">
+        <div class="text-white max-w-2xl animate-floatUp">
+          <h1 class="font-display text-3xl md:text-5xl leading-tight">Find your dream home with Horizon Realty</h1>
+          <p class="mt-3 text-sm md:text-lg text-gray-100">Curated listings, local expertise, and flexible financing — tailored to your lifestyle.</p>
+
+          <form id="search-form" class="mt-6 bg-white bg-opacity-95 rounded-lg p-4 shadow-md w-full md:w-[720px]">
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input id="q-location" placeholder="Location, neighborhood or ZIP" class="flex-1 p-3 rounded-md border border-gray-200 focus:ring-amber-500 focus:border-amber-500" />
+              <select id="q-type" class="p-3 rounded-md border border-gray-200">
+                <option value="all">Any property type</option>
+                <option value="house">House</option>
+                <option value="condo">Condo</option>
+                <option value="commercial">Commercial</option>
+              </select>
+              <button type="submit" class="px-4 py-3 bg-amber-700 text-white rounded-md hover:scale-105 transition">Search</button>
+            </div>
+            <div class="mt-2 text-xs text-gray-500">Try: "Maplewood, 3+ beds, under $750k"</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="listings" class="w-full px-6 md:px-20 py-12">
+      <div class="flex items-center justify-between">
+        <h2 class="font-display text-2xl md:text-3xl">Featured Listings</h2>
+        <div class="flex gap-2">
+          <button data-filter="all" class="filter-btn px-3 py-2 rounded-md bg-amber-700 text-white text-sm">All</button>
+          <button data-filter="house" class="filter-btn px-3 py-2 rounded-md bg-amber-50 text-amber-700 text-sm">Houses</button>
+          <button data-filter="condo" class="filter-btn px-3 py-2 rounded-md bg-amber-50 text-amber-700 text-sm">Condos</button>
+          <button data-filter="commercial" class="filter-btn px-3 py-2 rounded-md bg-amber-50 text-amber-700 text-sm">Commercial</button>
+        </div>
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="listings-grid">
+        
+        <div class="listing-card bg-white rounded-lg shadow hover:shadow-lg transition p-4" data-type="house" tabindex="0">
+          <div class="relative">
+            <img src="https://pixabay.com/get/g754436fa693ab4ef1d84089bf8cce63b2b8cc7813fdbdc5465cfd72714332e8b87a3c685c81bd4d39dedf848537ef557680e6d4cd316df9872e3c34ea6a6411c_640.jpg" alt="Property 1" class="w-full h-48 object-cover rounded-md" />
+            <div class="absolute top-3 left-3 bg-amber-700 text-white px-2 py-1 rounded text-sm">For Sale</div>
+            <div class="absolute top-3 right-3 bg-white/80 text-gray-800 px-2 py-1 rounded text-sm">4 bd • 3 ba</div>
+          </div>
+          <div class="mt-3">
+            <div class="font-medium text-lg">Maplewood Family Home</div>
+            <div class="text-sm text-gray-500 mt-1">Maplewood — 2,540 sqft</div>
+            <div class="mt-2 text-amber-700 font-semibold">$749,000</div>
+            <div class="mt-3 flex items-center gap-3">
+              <button class="view-btn px-3 py-2 rounded-md border border-amber-700 text-amber-700 text-sm">View</button>
+              <button class="save-btn px-3 py-2 rounded-md bg-amber-700 text-white text-sm">Contact Agent</button>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="listing-card bg-white rounded-lg shadow hover:shadow-lg transition p-4" data-type="condo" tabindex="0">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1649322434887-c56db993c7a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBkb3dudG93biUyMGNvbmRvJTIwYmFsY29ueSUyMHNreWxpbmUlMjB2aWV3fGVufDB8MHx8fDE3NTUzMzk5MzB8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Property 2" class="w-full h-48 object-cover rounded-md" />
+            <div class="absolute top-3 left-3 bg-amber-700 text-white px-2 py-1 rounded text-sm">For Rent</div>
+            <div class="absolute top-3 right-3 bg-white/80 text-gray-800 px-2 py-1 rounded text-sm">2 bd • 2 ba</div>
+          </div>
+          <div class="mt-3">
+            <div class="font-medium text-lg">Skyline City Condo</div>
+            <div class="text-sm text-gray-500 mt-1">Downtown — 1,120 sqft</div>
+            <div class="mt-2 text-amber-700 font-semibold">$2,400 / mo</div>
+            <div class="mt-3 flex items-center gap-3">
+              <button class="view-btn px-3 py-2 rounded-md border border-amber-700 text-amber-700 text-sm">View</button>
+              <button class="save-btn px-3 py-2 rounded-md bg-amber-700 text-white text-sm">Contact Agent</button>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="listing-card bg-white rounded-lg shadow hover:shadow-lg transition p-4" data-type="commercial" tabindex="0">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1632160446698-f8d67cdceae9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHw1fHxicmljayUyMHN0b3JlZnJvbnQlMjB3aXRoJTIwbGFyZ2UlMjB3aW5kb3dzJTIwb24lMjBidXN5JTIwbWFpbiUyMHN0cmVldHxlbnwwfDB8fHwxNzU1MzM5OTM0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Property 3" class="w-full h-48 object-cover rounded-md" />
+            <div class="absolute top-3 left-3 bg-amber-700 text-white px-2 py-1 rounded text-sm">For Sale</div>
+            <div class="absolute top-3 right-3 bg-white/80 text-gray-800 px-2 py-1 rounded text-sm">Retail • 1,800 sqft</div>
+          </div>
+          <div class="mt-3">
+            <div class="font-medium text-lg">Downtown Retail Space</div>
+            <div class="text-sm text-gray-500 mt-1">Main St — Prime foot traffic</div>
+            <div class="mt-2 text-amber-700 font-semibold">$1,150,000</div>
+            <div class="mt-3 flex items-center gap-3">
+              <button class="view-btn px-3 py-2 rounded-md border border-amber-700 text-amber-700 text-sm">View</button>
+              <button class="save-btn px-3 py-2 rounded-md bg-amber-700 text-white text-sm">Contact Agent</button>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="listing-card bg-white rounded-lg shadow hover:shadow-lg transition p-4" data-type="house" tabindex="0">
+          <div class="relative">
+            <img src="https://images.pexels.com/photos/13314165/pexels-photo-13314165.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Property 4" class="w-full h-48 object-cover rounded-md" />
+            <div class="absolute top-3 left-3 bg-amber-700 text-white px-2 py-1 rounded text-sm">New</div>
+            <div class="absolute top-3 right-3 bg-white/80 text-gray-800 px-2 py-1 rounded text-sm">3 bd • 2 ba</div>
+          </div>
+          <div class="mt-3">
+            <div class="font-medium text-lg">Garden Cottage</div>
+            <div class="text-sm text-gray-500 mt-1">Riverside — 1,480 sqft</div>
+            <div class="mt-2 text-amber-700 font-semibold">$489,000</div>
+            <div class="mt-3 flex items-center gap-3">
+              <button class="view-btn px-3 py-2 rounded-md border border-amber-700 text-amber-700 text-sm">View</button>
+              <button class="save-btn px-3 py-2 rounded-md bg-amber-700 text-white text-sm">Contact Agent</button>
+            </div>
+          </div>
+        </div>
+
+        
+
+      </div>
+
+      <div class="mt-8 text-center">
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="px-5 py-3 bg-white border border-amber-700 text-amber-700 rounded-md hover:shadow-md transition">Request a custom search</a>
+      </div>
+    </section>
+
+    
+    <section class="w-full px-6 md:px-20 py-12 bg-white">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-lg bg-amber-50">
+          <h3 class="font-medium text-2xl text-amber-700">Local Expertise</h3>
+          <p class="mt-2 text-gray-600">Agents who know the neighborhoods, schools, and market trends — so you make confident decisions.</p>
+        </div>
+        <div class="p-6 rounded-lg bg-gray-50">
+          <h3 class="font-medium text-2xl">Tailored Service</h3>
+          <p class="mt-2 text-gray-600">Buy, sell, or invest — we design a plan around your priorities and timeline.</p>
+        </div>
+        <div class="p-6 rounded-lg bg-gray-50">
+          <h3 class="font-medium text-2xl">Transparent Process</h3>
+          <p class="mt-2 text-gray-600">Clear communication, step-by-step guidance, and data-driven pricing.</p>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="w-full px-6 md:px-20 py-12">
+      <h3 class="font-display text-2xl">What clients say</h3>
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <blockquote class="p-6 bg-white rounded-lg shadow">"Horizon helped us find the perfect family home in two weeks — incredible service and local knowledge." <div class="mt-3 text-sm text-gray-500">— Anna R.</div></blockquote>
+        <blockquote class="p-6 bg-white rounded-lg shadow">"Sold our property above asking with a clear marketing plan. Highly recommend." <div class="mt-3 text-sm text-gray-500">— Marcus L.</div></blockquote>
+        <blockquote class="p-6 bg-white rounded-lg shadow">"Their investment team found great multi-family opportunities in under-served neighborhoods." <div class="mt-3 text-sm text-gray-500">— Priya S.</div></blockquote>
+      </div>
+    </section>
+  </main>
+
+  
+  <div id="modal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg w-full max-w-4xl mx-4 overflow-hidden shadow-lg">
+      <div class="p-4 flex items-start justify-between">
+        <div>
+          <div id="modal-title" class="font-medium text-xl">Property Title</div>
+          <div id="modal-sub" class="text-sm text-gray-500">Details</div>
+        </div>
+        <button id="modal-close" class="text-gray-500 hover:text-gray-800">Close</button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+        <img id="modal-img" src="https://images.pexels.com/photos/877894/pexels-photo-877894.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="" class="w-full h-60 object-cover rounded" />
+        <div>
+          <div id="modal-desc" class="text-gray-700"></div>
+          <ul id="modal-features" class="mt-4 list-disc list-inside text-gray-600"></ul>
+          <div class="mt-6">
+            <a id="modal-contact" href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="px-4 py-2 bg-amber-700 text-white rounded-md">Contact Agent</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <footer class="w-full bg-white border-t mt-8">
+    <div class="w-full px-6 md:px-20 py-10 flex flex-col md:flex-row justify-between gap-6">
+      <div>
+        <div class="font-display text-xl text-amber-700">Horizon Realty</div>
+        <div class="text-gray-600 mt-2">Serving buyers and sellers across the region</div>
+        <div class="mt-4 flex gap-3">
+          <a href="#" class="text-gray-500 hover:text-amber-700">Instagram</a>
+          <a href="#" class="text-gray-500 hover:text-amber-700">LinkedIn</a>
+        </div>
+      </div>
+      <div class="flex gap-8">
+        <div>
+          <div class="font-medium">Company</div>
+          <ul class="mt-2 text-gray-600">
+            <li><a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;" class="hover:text-amber-700">About</a></li>
+            <li><a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="hover:text-amber-700">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-medium">Support</div>
+          <ul class="mt-2 text-gray-600">
+            <li><a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="hover:text-amber-700">Request Help</a></li>
+            <li><a href="#" class="hover:text-amber-700">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="w-full text-center text-sm text-gray-500 py-4">© <span id="year"></span> Horizon Realty</div>
+  </footer>
+
+  <script src="./scripts.js"></script>
+</body>
+</html>
